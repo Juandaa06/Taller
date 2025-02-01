@@ -1,0 +1,140 @@
+/* ======== Configuración Global ======== */
+html {
+    font-size: 1rem; /* Define 1rem = 16px */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ======== Contenedor Principal con Grid ======== */
+.contenedor {
+    display: grid;
+    grid-template-columns: 1fr 3fr; /* Dos columnas */
+    grid-template-rows: auto 1fr auto; /* Header, contenido y footer */
+    grid-template-areas: 
+        "header header"
+        "sidebar contenido"
+        "footer footer";
+    gap: 1rem; /* Usa rem para mantener consistencia */
+    padding: 2rem; /* Espaciado uniforme */
+}
+
+/* ======== Encabezado ======== */
+.header {
+    grid-area: header;
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    padding: .5vh; /* Basado en la altura del viewport */
+    font-size: 1rem; /* Tamaño relativo a la raíz */
+}
+
+/* ======== Contenido Principal ======== */
+.contenido {
+    grid-area: contenido;
+    background-color: #ecf0f1;
+    padding: 2rem;
+    font-size: 1.3rem; /* Tamaño relativo a la raíz */
+}
+
+/* ======== Barra Lateral ======== */
+.sidebar {
+    grid-area: sidebar;
+    background-color: #f39c12;
+    padding: 2rem;
+    color: white;
+    font-size: 1.3em; /* Tamaño relativo al padre */
+    min-height: 25vh;
+}
+
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 1.2rem 0; /* Espaciado basado en el tamaño de la fuente de sidebar */
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: .7rem;
+}
+
+/* ======== Pie de Página ======== */
+.footer {
+    grid-area: footer;
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 1vh; /* Basado en la altura de la pantalla */
+    font-size: 1.5rem;
+}
+
+/* ======== Media Queries para Responsividad ======== */
+
+/*  PC (≥ 1024px) → Mantiene la estructura de 2 columnas */
+@media screen and (min-width: 1024px) {
+    .contenedor {
+        grid-template-columns: 1fr 3fr;
+    }
+    .sidebar ul li a {
+        font-size: 2.1rem; /* El triple del tamaño base */
+    }
+
+    .sidebar {
+        min-height: 40vh;
+    }
+}
+
+/* Tabletas (600px - 1023px) → Se reorganiza en 1 columna */
+@media screen and (max-width: 1023px) and (min-width: 600px) {
+    .contenedor {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "contenido"
+            "sidebar"
+            "footer";
+        text-align: center;
+    }
+    .sidebar {
+        font-size: 1.2rem; /* Ajusta el tamaño de fuente en tabletas */
+    }
+
+    .sidebar ul li a {
+        font-size: 1.4rem; /* El doble del tamaño base */
+    }
+}
+
+/*  Móviles (≤ 599px) → Todo en columna con tamaños ajustados */
+@media screen and (max-width: 599px) {
+
+    .contenedor{
+        text-align: center;
+    }
+
+    .header {
+        font-size: .8rem;
+    }
+    .contenido {
+        font-size: 1rem;
+    }
+    .sidebar {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+    .sidebar h2{
+        padding: .8rem;
+    }
+    .footer {
+        font-size: 1rem;
+    }
+}

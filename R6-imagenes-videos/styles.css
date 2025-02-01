@@ -1,0 +1,80 @@
+/* ======== Estilos Generales ======== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+/* ======== Contenedor de imágenes y videos ======== */
+.contenedor {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columnas en pantallas grandes */
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* ======== Estilos para Imágenes ======== */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.media{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* ======== Imagen con Object Fit ======== */
+.cover {
+    width: 100%;
+    height: 300px; /* Tamaño fijo */
+    object-fit: cover; /* Recorta sin deformar */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+/* ======== Video Responsive ======== */
+.video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9; /* Relación de aspecto 16:9 */
+    background-color: #000; /* Fondo negro si el video no se carga */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ======== Video Local ======== */
+video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ======== Responsividad ======== */
+/* Modificar Aspect Ratio para Móviles (4:3) */
+@media screen and (max-width: 768px) {
+    .video-container {
+        padding-top: 75%; /* Aspect Ratio 4:3 (4/3) para pantallas pequeñas */
+    }
+
+    .contenedor {
+        grid-template-columns: 1fr; /* 1 columna en móviles */
+    }
+}

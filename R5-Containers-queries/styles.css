@@ -1,0 +1,61 @@
+/* ======== Estilos Generales ======== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+/* ======== Habilitar Container Queries en el contenedor ======== */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+    contain: layout inline-size; /* Permite usar @container */
+    container-type: inline-size; /* Define el tipo de contenedor */
+    flex-direction: column; /* Por defecto, disposición en columna */
+    transition: all 0.5s ease-in-out; /* Suaviza transiciones */
+    align-items: center;
+}
+
+/* ======== Estilos base de las tarjetas ======== */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.5s ease-in-out, transform 0.3s ease;
+    width: 100%; /* En móviles ocupa todo el ancho */
+}
+
+/* ======== Ajustes dinámicos con @container ======== */
+@container (min-width: 400px) {
+    .card {
+        width: 100%;
+        background-color: #f8f9fa; /* Gris claro */
+    }
+}
+
+@container (min-width: 600px) {
+    .card {
+        width: 50%;
+        background-color: #ffcc00; /* Amarillo */
+    }
+}
+
+@container (min-width: 800px) {
+    .grid {
+        flex-direction: row; /* Cambio a disposición en fila */
+        justify-content: space-between;
+    }
+}
+
+@container (min-width: 1000px) {
+    .card {
+        width: 30%;
+        background-color: #2ecc71; /* Verde */
+        transform: scale(1.05); /* Pequeño efecto de crecimiento */
+    }
+}
